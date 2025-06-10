@@ -1421,7 +1421,7 @@ async function init() {
 async function spawnInitialModels() {
   try {
     // Spawn the NES model 2 units in front of the player
-    const nesModel = await spawnModelAtPlayer("./models/nes.gltf", {
+    const nesModel = await spawnModelAtPlayer("models/nes.gltf", {
       x: 0,
       y: 0,
       z: 2,
@@ -1804,7 +1804,7 @@ async function spawnShadowFigure() {
   validEnd.y = -0.6;
 
   // Load and clone the spook model
-  const gltf = await loadModel("/models/spook.gltf");
+  const gltf = await loadModel("models/spook.gltf");
   if (!gltf) return;
   const figure = gltf.scene.clone();
   figure.scale.set(3, 3, 3);
