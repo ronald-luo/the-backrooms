@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Backrooms</title>
+    <style>
+      body {
+        margin: 0;
+        overflow: hidden;
+        background: #000;
+      }
+      canvas {
+        width: 100vw;
+        height: 100vh;
+        display: block;
+      }
+      #loading {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #fff;
+        font-family: monospace;
+        font-size: 36px;
+        text-shadow: 0 0 10px #fff;
+        text-align: center;
+        line-height: 1.5;
+      }
+      #instructions {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        color: #fff;
+        font-family: monospace;
+        font-size: 16px;
+        text-shadow: 0 0 5px #fff;
+        opacity: 0.7;
+      }
+      #countdown {
+        position: fixed;
+        top: 30px;
+        left: 30px;
+        color: #fff;
+        font-family: monospace;
+        font-size: 28px;
+        font-weight: bold;
+        text-shadow: 0 0 8px #fff, 0 0 2px #000;
+        letter-spacing: 2px;
+        opacity: 0.85;
+        z-index: 1000;
+        user-select: none;
+        pointer-events: none;
+      }
+      #recording-indicator {
+        position: fixed;
+        top: 60px;
+        left: 30px;
+        color: #ff3333;
+        font-family: monospace;
+        font-size: 28px;
+        font-weight: bold;
+        text-shadow: 0 0 8px #ff3333, 0 0 2px #000;
+        letter-spacing: 2px;
+        opacity: 0.85;
+        z-index: 1000;
+        user-select: none;
+        pointer-events: none;
+        animation: blink-rec 1.2s steps(1) infinite;
+      }
+      @keyframes blink-rec {
+        0%,
+        60% {
+          opacity: 0.85;
+        }
+        70%,
+        100% {
+          opacity: 0.2;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="loading"></div>
+    <div id="instructions">
+      WASD - Move<br />
+      Mouse - Look around<br />
+      Shift - Run<br />
+      Space - Jump<br />
+      Left Click - Spray
+    </div>
+    <div id="countdown">10:00</div>
+    <div id="recording-indicator">● REC</div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
