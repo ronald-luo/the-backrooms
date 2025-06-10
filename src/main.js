@@ -41,7 +41,7 @@ const audioLoader = new THREE.AudioLoader();
 function tryLoadSound(path) {
   return new Promise((resolve) => {
     audioLoader.load(
-      `/the-backrooms/sounds/${path}`,
+      `/sounds/${path}`,
       (buffer) => resolve(buffer),
       undefined,
       () => resolve(null)
@@ -56,7 +56,7 @@ const textureLoader = new THREE.TextureLoader();
 function tryLoadTexture(path) {
   return new Promise((resolve) => {
     textureLoader.load(
-      `/the-backrooms/textures/${path}`,
+      `/textures/${path}`,
       (tex) => resolve(tex),
       undefined,
       () => resolve(null)
