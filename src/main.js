@@ -4,16 +4,16 @@
 // SOUND FILENAMES (put these in public/sounds/):
 // buzz.mp3, ambient.mp3
 
-import * as THREE from "three";
-import { PointerLockControls } from "three/examples/jsm/controls/PointerLockControls.js";
-import { RectAreaLightUniformsLib } from "three/examples/jsm/lights/RectAreaLightUniformsLib.js";
-import { RectAreaLightHelper } from "three/examples/jsm/helpers/RectAreaLightHelper.js";
-import { EXRLoader } from "three/examples/jsm/loaders/EXRLoader.js";
-import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer.js";
-import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass.js";
-import { ShaderPass } from "three/examples/jsm/postprocessing/ShaderPass.js";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
-import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader.js";
+import * as THREE from "/node_modules/three/build/three.module.js";
+import { PointerLockControls } from "/node_modules/three/examples/jsm/controls/PointerLockControls.js";
+import { RectAreaLightUniformsLib } from "/node_modules/three/examples/jsm/lights/RectAreaLightUniformsLib.js";
+import { RectAreaLightHelper } from "/node_modules/three/examples/jsm/helpers/RectAreaLightHelper.js";
+import { EXRLoader } from "/node_modules/three/examples/jsm/loaders/EXRLoader.js";
+import { EffectComposer } from "/node_modules/three/examples/jsm/postprocessing/EffectComposer.js";
+import { RenderPass } from "/node_modules/three/examples/jsm/postprocessing/RenderPass.js";
+import { ShaderPass } from "/node_modules/three/examples/jsm/postprocessing/ShaderPass.js";
+import { GLTFLoader } from "/node_modules/three/examples/jsm/loaders/GLTFLoader.js";
+import { DRACOLoader } from "/node_modules/three/examples/jsm/loaders/DRACOLoader.js";
 
 // Audio setup
 const listener = new THREE.AudioListener();
@@ -41,7 +41,7 @@ const audioLoader = new THREE.AudioLoader();
 function tryLoadSound(path) {
   return new Promise((resolve) => {
     audioLoader.load(
-      `/sounds/${path}`,
+      path,
       (buffer) => resolve(buffer),
       undefined,
       () => resolve(null)
@@ -56,7 +56,7 @@ const textureLoader = new THREE.TextureLoader();
 function tryLoadTexture(path) {
   return new Promise((resolve) => {
     textureLoader.load(
-      `/textures/${path}`,
+      path,
       (tex) => resolve(tex),
       undefined,
       () => resolve(null)
@@ -499,25 +499,25 @@ async function setupMaterials() {
     crawlingBuffer,
     idlingBuffer,
   ] = await Promise.all([
-    tryLoadTexture("/textures/beige_wall_002_diff_4k.jpg"),
-    tryLoadTexture("/textures/dirty_carpet_diff_4k.jpg"),
-    tryLoadTexture("/textures/ceiling.jpg"),
-    tryLoadTexture("/textures/fluorescent.png"),
-    exrLoader.loadAsync("/textures/beige_wall_002_nor_gl_4k.exr"),
-    tryLoadTexture("/textures/beige_wall_002_rough_4k.jpg"),
-    exrLoader.loadAsync("/textures/dirty_carpet_nor_gl_4k.exr"),
-    exrLoader.loadAsync("/textures/dirty_carpet_rough_4k.exr"),
-    tryLoadTexture("/textures/dirty_carpet_disp_4k.png"),
-    tryLoadSound("/sounds/buzz.mp3"),
-    tryLoadSound("/sounds/ambient.mp3"),
-    tryLoadSound("/sounds/walk.mp3"),
-    tryLoadSound("/sounds/knock.mp3"),
-    tryLoadSound("/sounds/breath.mp3"),
-    tryLoadTexture("/textures/spray_paint.png"),
-    tryLoadSound("/sounds/spray.mp3"),
-    tryLoadSound("/sounds/spray_shake.mp3"),
-    tryLoadSound("/sounds/crawling.mp3"),
-    tryLoadSound("/sounds/idling.mp3"),
+    tryLoadTexture("textures/beige_wall_002_diff_4k.jpg"),
+    tryLoadTexture("textures/dirty_carpet_diff_4k.jpg"),
+    tryLoadTexture("textures/ceiling.jpg"),
+    tryLoadTexture("textures/fluorescent.png"),
+    exrLoader.loadAsync("textures/beige_wall_002_nor_gl_4k.exr"),
+    tryLoadTexture("textures/beige_wall_002_rough_4k.jpg"),
+    exrLoader.loadAsync("textures/dirty_carpet_nor_gl_4k.exr"),
+    exrLoader.loadAsync("textures/dirty_carpet_rough_4k.exr"),
+    tryLoadTexture("textures/dirty_carpet_disp_4k.png"),
+    tryLoadSound("sounds/buzz.mp3"),
+    tryLoadSound("sounds/ambient.mp3"),
+    tryLoadSound("sounds/walk.mp3"),
+    tryLoadSound("sounds/knock.mp3"),
+    tryLoadSound("sounds/breath.mp3"),
+    tryLoadTexture("textures/spray_paint.png"),
+    tryLoadSound("sounds/spray.mp3"),
+    tryLoadSound("sounds/spray_shake.mp3"),
+    tryLoadSound("sounds/crawling.mp3"),
+    tryLoadSound("sounds/idling.mp3"),
   ]);
 
   // Setup sounds if loaded
