@@ -2,6 +2,8 @@
 
 A first-person horror game based on the backrooms concept, built with Three.js. Experience the unsettling atmosphere of endless yellow rooms with flickering lights.
 
+Try it here: https://ronald-luo.github.io/the-backrooms/
+
 ## Features
 
 - First-person exploration
@@ -10,6 +12,7 @@ A first-person horror game based on the backrooms concept, built with Three.js. 
 - Flickering lights
 - WASD movement controls
 - Mouse look controls
+- Positional audio (radio sounds)
 
 ## Setup
 
