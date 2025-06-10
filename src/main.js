@@ -41,7 +41,7 @@ const audioLoader = new THREE.AudioLoader();
 function tryLoadSound(path) {
   return new Promise((resolve) => {
     audioLoader.load(
-      path,
+      `/the-backrooms/sounds/${path}`,
       (buffer) => resolve(buffer),
       undefined,
       () => resolve(null)
@@ -56,7 +56,7 @@ const textureLoader = new THREE.TextureLoader();
 function tryLoadTexture(path) {
   return new Promise((resolve) => {
     textureLoader.load(
-      path,
+      `/the-backrooms/textures/${path}`,
       (tex) => resolve(tex),
       undefined,
       () => resolve(null)
@@ -211,7 +211,7 @@ async function spawnModelAtPlayer(modelPath, offset = { x: 0, y: 0, z: 0 }) {
 
   // Add radio sound to the model
   audioLoader.load(
-    "./sounds/radio.mp3",
+    "/the-backrooms/sounds/radio.mp3",
     function (buffer) {
       radioSound.setBuffer(buffer);
       radioSound.setRefDistance(1.5);
@@ -499,25 +499,25 @@ async function setupMaterials() {
     crawlingBuffer,
     idlingBuffer,
   ] = await Promise.all([
-    tryLoadTexture("textures/beige_wall_002_diff_4k.jpg"),
-    tryLoadTexture("textures/dirty_carpet_diff_4k.jpg"),
-    tryLoadTexture("textures/ceiling.jpg"),
-    tryLoadTexture("textures/fluorescent.png"),
-    exrLoader.loadAsync("textures/beige_wall_002_nor_gl_4k.exr"),
-    tryLoadTexture("textures/beige_wall_002_rough_4k.jpg"),
-    exrLoader.loadAsync("textures/dirty_carpet_nor_gl_4k.exr"),
-    exrLoader.loadAsync("textures/dirty_carpet_rough_4k.exr"),
-    tryLoadTexture("textures/dirty_carpet_disp_4k.png"),
-    tryLoadSound("sounds/buzz.mp3"),
-    tryLoadSound("sounds/ambient.mp3"),
-    tryLoadSound("sounds/walk.mp3"),
-    tryLoadSound("sounds/knock.mp3"),
-    tryLoadSound("sounds/breath.mp3"),
-    tryLoadTexture("textures/spray_paint.png"),
-    tryLoadSound("sounds/spray.mp3"),
-    tryLoadSound("sounds/spray_shake.mp3"),
-    tryLoadSound("sounds/crawling.mp3"),
-    tryLoadSound("sounds/idling.mp3"),
+    tryLoadTexture("beige_wall_002_diff_4k.jpg"),
+    tryLoadTexture("dirty_carpet_diff_4k.jpg"),
+    tryLoadTexture("ceiling.jpg"),
+    tryLoadTexture("fluorescent.png"),
+    exrLoader.loadAsync("/the-backrooms/textures/beige_wall_002_nor_gl_4k.exr"),
+    tryLoadTexture("beige_wall_002_rough_4k.jpg"),
+    exrLoader.loadAsync("/the-backrooms/textures/dirty_carpet_nor_gl_4k.exr"),
+    exrLoader.loadAsync("/the-backrooms/textures/dirty_carpet_rough_4k.exr"),
+    tryLoadTexture("dirty_carpet_disp_4k.png"),
+    tryLoadSound("buzz.mp3"),
+    tryLoadSound("ambient.mp3"),
+    tryLoadSound("walk.mp3"),
+    tryLoadSound("knock.mp3"),
+    tryLoadSound("breath.mp3"),
+    tryLoadTexture("spray_paint.png"),
+    tryLoadSound("spray.mp3"),
+    tryLoadSound("spray_shake.mp3"),
+    tryLoadSound("crawling.mp3"),
+    tryLoadSound("idling.mp3"),
   ]);
 
   // Setup sounds if loaded
